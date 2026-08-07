@@ -1706,3 +1706,1096 @@ footer::before{
     }
 
 }
+/* ============================= */
+/* PREMIUM COUNTDOWN SECTION */
+/* ============================= */
+
+#premiumCountdown{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(circle at top,#2d0b59 0%,#13072e 35%,#050816 70%,#000000 100%);
+
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+/* Background Glow */
+
+.countdown-overlay{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle,#ff6ec722 0%,transparent 40%),
+    radial-gradient(circle at right,#7c5cff22 0%,transparent 35%),
+    radial-gradient(circle at left,#00e1ff22 0%,transparent 35%);
+
+    filter:blur(40px);
+
+    animation:
+    glowMove 10s linear infinite alternate;
+}
+
+@keyframes glowMove{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.15);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/* ============================= */
+/* TOP TEXT */
+/* ============================= */
+
+.coming-text{
+
+font-size:24px;
+
+letter-spacing:2px;
+
+color:#ffd8f4;
+
+margin-bottom:15px;
+
+font-weight:500;
+
+animation:fadeText 3s ease infinite;
+
+text-shadow:
+
+0 0 15px #ff77c8,
+
+0 0 30px #ff77c8;
+
+}
+
+@keyframes fadeText{
+
+0%{
+
+opacity:.4;
+
+}
+
+50%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:.4;
+
+}
+
+}
+
+/* ============================= */
+
+.main-title{
+
+font-size:60px;
+
+font-weight:900;
+
+line-height:1.2;
+
+background:linear-gradient(90deg,#ffffff,#ffd86b,#ff7bc8,#ffffff);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:titleGlow 8s linear infinite;
+
+margin-bottom:60px;
+
+text-shadow:
+
+0 0 25px rgba(255,255,255,.25);
+
+}
+
+@keyframes titleGlow{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:300%;
+
+}
+
+}
+/*======================================
+    PREMIUM COUNTDOWN - PART 2
+=======================================*/
+
+/* Countdown Box */
+
+.countdown-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:22px;
+
+    flex-wrap:wrap;
+
+    z-index:5;
+
+}
+
+/* Time Card */
+
+.time{
+
+    width:150px;
+
+    height:170px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.45),
+
+    inset 0 0 20px rgba(255,255,255,.05),
+
+    0 0 25px rgba(255,120,210,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.45s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* Shine Effect */
+
+.time::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-150%;
+
+    left:-60%;
+
+    width:60%;
+
+    height:350%;
+
+    background:rgba(255,255,255,.18);
+
+    transform:rotate(25deg);
+
+    animation:shine 5s linear infinite;
+
+}
+
+@keyframes shine{
+
+    from{
+
+        left:-70%;
+
+    }
+
+    to{
+
+        left:180%;
+
+    }
+
+}
+
+/* Hover */
+
+.time:hover{
+
+    transform:
+
+    translateY(-12px)
+
+    scale(1.05);
+
+    box-shadow:
+
+    0 0 45px #ff74c8,
+
+    0 0 70px rgba(255,255,255,.2);
+
+}
+
+/* Number */
+
+.time span{
+
+    font-size:70px;
+
+    font-weight:900;
+
+    color:white;
+
+    text-shadow:
+
+    0 0 20px #ffffff,
+
+    0 0 35px #ff8ad4;
+
+    animation:pulse 1s ease infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Label */
+
+.time small{
+
+    margin-top:10px;
+
+    font-size:17px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#ffe2f7;
+
+}
+
+/* Colon */
+
+.colon{
+
+    font-size:65px;
+
+    font-weight:900;
+
+    color:#ffd76a;
+
+    animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+    50%{
+
+        opacity:.3;
+
+    }
+
+}
+
+/* Love Message */
+
+#loveMessage{
+
+    margin-top:55px;
+
+    max-width:850px;
+
+    font-size:26px;
+
+    color:#ffffff;
+
+    line-height:1.8;
+
+    text-shadow:
+
+    0 0 20px rgba(255,255,255,.4);
+
+    animation:fadeLove 5s ease infinite;
+
+}
+
+@keyframes fadeLove{
+
+    0%{
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.4;
+
+    }
+
+}
+/*=========================================
+        PREMIUM COUNTDOWN PART 3
+=========================================*/
+
+/*=========================
+      FLOATING HEARTS
+=========================*/
+
+.floating-heart{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    color:#ff5fa2;
+
+    font-size:24px;
+
+    opacity:.8;
+
+    animation:heartFloat linear infinite;
+
+    pointer-events:none;
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:
+        translateY(0)
+        rotate(0deg)
+        scale(.5);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-120vh)
+        rotate(360deg)
+        scale(1.5);
+
+        opacity:0;
+
+    }
+
+}
+
+/*=========================
+      TWINKLING STARS
+=========================*/
+
+.star{
+
+    position:absolute;
+
+    width:3px;
+
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+
+    0 0 10px white,
+
+    0 0 20px cyan;
+
+    animation:twinkle 2s infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+    from{
+
+        opacity:.3;
+
+        transform:scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1.8);
+
+    }
+
+}
+
+/*=========================
+      AURORA LIGHT
+=========================*/
+
+#premiumCountdown::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at 20% 20%,#ff00ff25,transparent 35%),
+
+    radial-gradient(circle at 80% 30%,#00e1ff22,transparent 35%),
+
+    radial-gradient(circle at 50% 80%,#ffd70022,transparent 40%);
+
+    filter:blur(80px);
+
+    animation:aurora 10s ease infinite alternate;
+
+}
+
+@keyframes aurora{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.2);
+
+    }
+
+}
+
+/*=========================
+      LOVE MESSAGE
+=========================*/
+
+#loveMessage{
+
+    margin-top:45px;
+
+    max-width:900px;
+
+    color:white;
+
+    font-size:26px;
+
+    line-height:1.8;
+
+    animation:fadeMessage 6s infinite;
+
+}
+
+@keyframes fadeMessage{
+
+    0%{
+
+        opacity:.2;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.2;
+
+    }
+
+}
+
+/*=========================
+      LAST 10 SEC
+=========================*/
+
+.dangerMode{
+
+    animation:dangerFlash .8s infinite;
+
+}
+
+@keyframes dangerFlash{
+
+    0%{
+
+        filter:hue-rotate(0deg);
+
+    }
+
+    50%{
+
+        filter:hue-rotate(60deg);
+
+    }
+
+    100%{
+
+        filter:hue-rotate(0deg);
+
+    }
+
+}
+
+/*=========================
+      MIDNIGHT FLASH
+=========================*/
+
+.flashScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:white;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:999999;
+
+    animation:flashAnim 1s forwards;
+
+}
+
+@keyframes flashAnim{
+
+    0%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
+/*=========================
+      RESPONSIVE
+=========================*/
+
+@media(max-width:768px){
+
+    .countdown-box{
+
+        gap:14px;
+
+    }
+
+    .time{
+
+        width:110px;
+
+        height:130px;
+
+    }
+
+    .time span{
+
+        font-size:48px;
+
+    }
+
+    .main-title{
+
+        font-size:40px;
+
+    }
+
+    .coming-text{
+
+        font-size:20px;
+
+    }
+
+    #loveMessage{
+
+        font-size:18px;
+
+        padding:0 15px;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .countdown-box{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .time{
+
+        width:90px;
+
+        height:110px;
+
+    }
+
+    .time span{
+
+        font-size:38px;
+
+    }
+
+}
+/*=========================================
+      PREMIUM COUNTDOWN CSS - PART 4
+=========================================*/
+
+/*========== GOLDEN RING ==========*/
+
+.countdown-box{
+
+    position:relative;
+
+}
+
+.countdown-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:430px;
+    height:430px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,215,0,.25);
+
+    box-shadow:
+
+    0 0 30px gold,
+
+    inset 0 0 30px gold;
+
+    animation:ringRotate 18s linear infinite;
+
+}
+
+@keyframes ringRotate{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/*========== GLASS REFLECTION ==========*/
+
+.time::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250%;
+
+    height:60px;
+
+    top:-40px;
+
+    left:-140%;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    transparent,
+
+    rgba(255,255,255,.35),
+
+    transparent);
+
+    transform:rotate(25deg);
+
+    animation:glassMove 5s linear infinite;
+
+}
+
+@keyframes glassMove{
+
+    from{
+
+        left:-150%;
+
+    }
+
+    to{
+
+        left:160%;
+
+    }
+
+}
+
+/*========== HEART BEAT ==========*/
+
+.main-title{
+
+    animation:
+
+    heartBeat 2s infinite,
+
+    titleGlow 8s linear infinite;
+
+}
+
+@keyframes heartBeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    25%{
+
+        transform:scale(1.04);
+
+    }
+
+    50%{
+
+        transform:scale(.98);
+
+    }
+
+    75%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*========== ROSE PETALS ==========*/
+
+.rose{
+
+    position:absolute;
+
+    top:-60px;
+
+    font-size:22px;
+
+    animation:roseFall linear forwards;
+
+    pointer-events:none;
+
+    z-index:20;
+
+}
+
+@keyframes roseFall{
+
+    from{
+
+        transform:
+
+        translateY(0)
+
+        rotate(0deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+
+        translateY(120vh)
+
+        rotate(720deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/*========== MAGIC GLOW ==========*/
+
+.magicGlow{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle,
+
+    rgba(255,255,255,.08),
+
+    transparent 70%);
+
+    animation:magicGlow 6s ease infinite;
+
+    pointer-events:none;
+
+}
+
+@keyframes magicGlow{
+
+    0%{
+
+        opacity:.2;
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        opacity:.8;
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        opacity:.2;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/*========== FINAL MESSAGE ==========*/
+
+.finalWish{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:
+
+    radial-gradient(circle,
+
+    #1d0036,
+
+    #000);
+
+    z-index:999999;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:1s;
+
+}
+
+.finalWish.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.finalWish h1{
+
+    font-size:75px;
+
+    color:#fff;
+
+    text-align:center;
+
+    text-shadow:
+
+    0 0 25px gold,
+
+    0 0 60px hotpink;
+
+}
+
+.finalWish p{
+
+    margin-top:20px;
+
+    font-size:26px;
+
+    color:white;
+
+    max-width:700px;
+
+    line-height:1.8;
+
+}
+
+/*========== GLOW BUTTON ==========*/
+
+#celebrate{
+
+    transition:.4s;
+
+}
+
+#celebrate:hover{
+
+    transform:
+
+    scale(1.08);
+
+    box-shadow:
+
+    0 0 30px hotpink,
+
+    0 0 60px deeppink;
+
+}
+
+/*========== MOBILE ==========*/
+
+@media(max-width:768px){
+
+.countdown-box::before{
+
+width:280px;
+
+height:280px;
+
+}
+
+.finalWish h1{
+
+font-size:42px;
+
+}
+
+.finalWish p{
+
+font-size:18px;
+
+padding:20px;
+
+}
+
+}
