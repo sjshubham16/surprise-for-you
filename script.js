@@ -1016,6 +1016,268 @@ document.addEventListener("keydown", (e) => {
     }
 
 });
+/*=========================================
+      PREMIUM BIRTHDAY COUNTDOWN
+=========================================*/
+
+// Birthday Time
+const birthdayDate = new Date("August 8, 2026 00:00:00").getTime();
+
+// Elements
+const days = document.getElementById("days");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
+
+const loveMessage = document.getElementById("loveMessage");
+
+const premiumCountdown = document.getElementById("premiumCountdown");
+
+// Romantic Messages
+const messages = [
+
+"❤️ Every second brings me closer to celebrating YOU.",
+
+"🌸 Tomorrow will be filled with smiles and happiness.",
+
+"💖 A little surprise is waiting just for you.",
+
+"✨ You deserve the most beautiful day ever.",
+
+"🎁 Just a little more patience...",
+
+
+"🌹 Every heartbeat says Happy Birthday in advance."
+
+];
+
+// Message Change
+let msgIndex = 0;
+
+setInterval(() => {
+
+msgIndex++;
+
+if(msgIndex >= messages.length){
+
+msgIndex = 0;
+
+}
+
+loveMessage.style.opacity = 0;
+
+setTimeout(()=>{
+
+loveMessage.innerHTML = messages[msgIndex];
+
+loveMessage.style.opacity = 1;
+
+},500);
+
+},6000);
+
+// Countdown
+const timer = setInterval(()=>{
+
+const now = new Date().getTime();
+
+const distance = birthdayDate - now;
+
+// Birthday Reached
+if(distance <= 0){
+
+clearInterval(timer);
+
+// Hide Countdown
+premiumCountdown.style.display = "none";
+
+// Birthday Scene
+const birthdayScene = document.getElementById("birthdayScene");
+
+if(birthdayScene){
+
+birthdayScene.style.display="block";
+
+}
+
+// Fireworks
+if(typeof startFireworks==="function"){
+
+startFireworks();
+
+}
+
+// Hearts
+if(typeof launchGiftHearts==="function"){
+
+launchGiftHearts();
+
+}
+
+// Rose Rain
+if(typeof startRoseRain==="function"){
+
+startRoseRain();
+
+}
+
+// Confetti
+if(typeof confettiBurst==="function"){
+
+confettiBurst();
+
+}
+
+// Golden Message
+if(typeof showGoldenMessage==="function"){
+
+showGoldenMessage();
+
+}
+
+return;
+
+}
+
+// Time Calculation
+
+const d = Math.floor(distance/(1000*60*60*24));
+
+const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const m = Math.floor((distance%(1000*60*60))/(1000*60));
+
+const s = Math.floor((distance%(1000*60))/1000);
+
+// Update HTML
+
+days.innerHTML = String(d).padStart(2,"0");
+
+hours.innerHTML = String(h).padStart(2,"0");
+
+minutes.innerHTML = String(m).padStart(2,"0");
+
+seconds.innerHTML = String(s).padStart(2,"0");
+
+// Last 10 Seconds
+
+if(distance<=10000){
+
+premiumCountdown.classList.add("dangerMode");
+
+}
+
+// Pulse Animation
+
+document.querySelectorAll(".time span").forEach(el=>{
+
+el.animate(
+
+[
+
+{transform:"scale(1)"},
+
+{transform:"scale(1.15)"},
+
+{transform:"scale(1)"}
+
+],
+
+{
+
+duration:500
+
+}
+
+);
+
+});
+
+},1000);
+
+/*=========================================
+      FLOATING HEARTS
+=========================================*/
+
+function createFloatingHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="floating-heart";
+
+heart.innerHTML=["❤️","💖","💕","💗","💝"][Math.floor(Math.random()*5)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(5+Math.random()*6)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},11000);
+
+}
+
+setInterval(createFloatingHeart,900);
+
+/*=========================================
+      STARS
+=========================================*/
+
+function createStar(){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"vw";
+
+star.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+
+star.remove();
+
+},5000);
+
+}
+
+setInterval(createStar,400);
+
+/*=========================================
+      ROSE PETALS
+=========================================*/
+
+function createRose(){
+
+const rose=document.createElement("div");
+
+rose.className="rose";
+
+rose.innerHTML="🌹";
+
+rose.style.left=Math.random()*100+"vw";
+
+rose.style.animationDuration=(6+Math.random()*5)+"s";
+
+document.body.appendChild(rose);
+
+setTimeout(()=>{
+
+rose.remove();
+
+},11000);
+
+}
+
+setInterval(createRose,1500);
+
+console.log("❤️ Premium Countdown Loaded");
 
 /*=========================
       WINDOW RESIZE
